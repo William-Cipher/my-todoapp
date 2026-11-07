@@ -1,0 +1,20 @@
+{
+  "name": "my-todoapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "手动搭建的 Vite + TypeScript 待办清单",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.6"
+  }
+}

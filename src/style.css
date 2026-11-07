@@ -1,0 +1,161 @@
+/* 颜色和圆角集中成变量，改一处就能整体换风格 */
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2430;
+  --muted: #8b93a7;
+  --line: #e6e9f2;
+  --primary: #3b6cf6;
+  --danger: #e5484d;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: start center;
+  padding: 48px 16px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+.todo-container {
+  width: min(520px, 100%);
+  padding: 24px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgb(31 36 48 / 8%);
+}
+
+#app-title {
+  margin: 0 0 20px;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- 输入区 ---------- */
+
+.input-group {
+  display: flex;
+  gap: 8px;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+#todo-input:focus {
+  border-color: var(--primary);
+}
+
+#add-btn {
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#add-btn:hover {
+  filter: brightness(1.08);
+}
+
+/* ---------- 筛选区 ---------- */
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0 8px;
+}
+
+.filter-group button {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.filter-group button.active {
+  border-color: var(--primary);
+  background: rgb(59 108 246 / 8%);
+  color: var(--primary);
+}
+
+/* ---------- 列表 ---------- */
+
+#todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+#todo-list li:last-child {
+  border-bottom: 0;
+}
+
+#todo-list .toggle {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+#todo-list .text {
+  flex: 1;
+  font-size: 15px;
+  word-break: break-word;
+}
+
+#todo-list li.done .text {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+#todo-list .del-btn {
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--danger);
+  font-size: 13px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+#todo-list li:hover .del-btn {
+  opacity: 1;
+}
+
+#todo-list .empty {
+  justify-content: center;
+  padding: 28px 0;
+  border-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
